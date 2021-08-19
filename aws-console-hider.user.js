@@ -3,6 +3,7 @@
 // @description  Redact sensitive information on your AWS Console
 // @version      0.1
 // @author       https://github.com/mauricioklein
+// @license      MIT
 // @include      https://*console.aws.amazon.com/*
 // @grant        none
 // @run-at       document-start
