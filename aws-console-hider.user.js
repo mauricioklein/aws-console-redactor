@@ -12,7 +12,7 @@
 // ==/UserScript==
 
 // ==OpenUserJS==
-// @author mauricioklein
+// @author mklein
 // ==/OpenUserJS==
 
 this.$ = this.jQuery = jQuery.noConflict(true);
