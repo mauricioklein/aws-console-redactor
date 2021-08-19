@@ -1,4 +1,4 @@
-# AWS Console Refactor
+# AWS Console Redactor
 
 Greasemonkey script that redacts sensitive information on your AWS Console.
 
@@ -9,12 +9,24 @@ those with sensitive data by a link with `[REDACTED]` text.
 
 When clicked, this link will copy the sensitive data to your clipboard.
 
-## ATTENTION
+Sensitive data is defined by looking for specific patterns (or substrings) in these text nodes (today, these patterns are hardcoded in the user script).
 
-Use this script at your own risk.
+![](imgs/my-account.png)
+![](imgs/role-arn.png)
+![](imgs/mfa-device.png)
+![](imgs/bucket-arn.png)
+![](imgs/cf-stack-id.png)
+![](imgs/copy-to-clipboard.png)
 
-Due to Greasemonkey characteristics, there's a very short delay where the original sensitive data
-is still visible at your console. If you're recording your screen, someone checking the video frame by
+---
+
+## ** ATTENTION **
+
+**Use this script at your own risk.**
+
+Due to Greasemonkey characteristics, sensitive data is still visible for a short time while the page loads.
+
+If you're recording your screen, someone checking the video frame by
 frame can still spot sensitive data.
 
-The author isn't responsible by the consequences of using this script
+**The author isn't responsible by the consequences of using this script**
