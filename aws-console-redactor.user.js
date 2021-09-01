@@ -24,12 +24,8 @@ watchForElements(queryAccountId, "accountId", function (element) {
   redactPattern("arn:aws"); // Redact all ARNs
   redactPattern("Account:"); // Redact trusted accounts on IAM roles list view
   
-  try {
-        const accInheader = accountId.substring(0,4) + "-" + accountId.substring(4,8) + "-" + accountId.substring(8);
-        redactPattern(accInheader); // the banner, where account number is hyphenated 1234-5678-9876 format
-  } catch (e) {
-      console.log(e);
-  }
+  const accInheader = accountId.substring(0,4) + "-" + accountId.substring(4,8) + "-" + accountId.substring(8);
+  redactPattern(accInheader); // the banner, where account number is hyphenated 1234-5678-9876 format
   
 });
 
@@ -80,11 +76,11 @@ function replaceByRedactedLink(node) {
  */
 function copyToClipboard(data) {
   
-  setTimeout(async()=>
+  (async()=>
   {
       await navigator.clipboard.writeText(data.trim());
       alert("Copied to clipboard!");
-  }, 500);
+  })();
   
   // Fixed error regarding document not in focus.
 }
