@@ -23,6 +23,10 @@ watchForElements(queryAccountId, "accountId", function (element) {
   redactPattern(accountId); // Redact by account ID
   redactPattern("arn:aws"); // Redact all ARNs
   redactPattern("Account:"); // Redact trusted accounts on IAM roles list view
+  
+  const accInheader = accountId.substring(0,4) + "-" + accountId.substring(4,8) + "-" + accountId.substring(8);
+  redactPattern(accInheader); // the banner, where account number is hyphenated 1234-5678-9876 format
+  
 });
 
 /**
@@ -71,8 +75,14 @@ function replaceByRedactedLink(node) {
  * Copy "data" to clipboard
  */
 function copyToClipboard(data) {
-  navigator.clipboard.writeText(data.trim());
-  alert("Copied to clipboard!");
+  
+  (async()=>
+  {
+      await navigator.clipboard.writeText(data.trim());
+      alert("Copied to clipboard!");
+  })();
+  
+  // Fixed error regarding document not in focus.
 }
 
 /**
